@@ -1,0 +1,4 @@
+akamon_oauth_token:
+    pattern:  /oauth/token
+    defaults: { _controller: akamon.oauth_server.server:token, _format: json }
+    methods:  [POST]

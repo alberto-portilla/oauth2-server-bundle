@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="akamon.oauth2.server.client_repository" alias="">
+        </service>
+        <service id="akamon.oauth2.server.access_token_repository" alias="">
+        </service>
+        <service id="akamon.oauth2.server.refresh_token_repository" alias="">
+        </service>
+
+        <service id="akamon.oauth2.server.storage" class="Akamon\OAuth2\Server\Storage">
+            <argument type="service" id="akamon.oauth2.server.client_repository" />
+            <argument type="service" id="akamon.oauth2.server.access_token_repository" />
+            <argument type="service" id="akamon.oauth2.server.refresh_token_repository" />
+        </service>
+
+        <service id="akamon.oauth2.server.server_builder" class="Akamon\OAuth2\Server\OAuth2ServerBuilder">
+            <argument type="service" id="akamon.oauth2.server.storage" />
+        </service>
+
+        <service id="akamon.oauth2.server.server" class="Akamon\OAuth2\Server\OAuth2Server" factory-service="akamon.oauth2.server.server_builder" factory-method="build">
+        </service>
+
+        <service id="akamon.oauth2.server.command.client.create" class="Akamon\OAuth2\Server\Infrastructure\SymfonyConsole\CreateClientCommand">
+            <argument type="service" id="akamon.oauth2.server.client_repository" />
+            <tag name="console.command" />
+        </service>
+
+    </services>
+
+</container>
