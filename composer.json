@@ -31,20 +31,20 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/Akamon/behat-api-context"
+            "url": "https://github.com/TangeloGames/behat-api-context"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Akamon/behat-symfony-kernel-context"
+            "url": "https://github.com/TangeloGames/behat-symfony-kernel-context"
         },
 
         {
             "type": "vcs",
-            "url": "https://github.com/Akamon/symfony-configurable-kernel"
+            "url": "https://github.com/TangeloGames/symfony-configurable-kernel"
         },
         {
             "type": "vcs",
-            "url": "https://github.com/Akamon/mockery-callable-mock"
+            "url": "https://github.com/TangeloGames/mockery-callable-mock"
         }
     ]
 }
